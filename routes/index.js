@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', passport.authenticate('local', {
   successRedirect: '/users',
-  failureRedirect: '/'
+  failureRedirect: '/restricted'
 }));
 
 module.exports = router;

@@ -12,6 +12,7 @@ var User = require('./models/user');
 var register = require('./routes/register');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var restricted = require('./routes/restricted');
 
 var app = express();
 
@@ -86,6 +87,7 @@ passport.use('local', new localStrategy({
 app.use('/', routes);
 app.use('/users', users);
 app.use('/register', register);
+app.use('/restricted', restricted);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var path = require('path');
 var Users = require('../models/user');
+var mongoose = require('mongoose');
 
 router.get('/', function(req, res, next){
     res.sendFile(path.resolve(__dirname, '../views/register.html'));
