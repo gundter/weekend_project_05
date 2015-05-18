@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/data', function(req, res, next) {
-  User.find(function (err, user) {
+  User.find({}, "username firstName lastName email", function (err, user) {
     if (err) return next(err);
     req.isAuthenticated(res.json(user));
   });
