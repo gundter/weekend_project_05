@@ -50,7 +50,8 @@ function buildAndAppendData(id, firstName, lastName, username, email){
         .attr('data-firstName', firstName)
         .attr('data-lastName', lastName)
         .attr('data-username', username)
-        .attr('data-email', email);
+        .attr('data-email', email)
+        .addClass('well col-md-4');
 
     var ul = $('<ul/>')
         .appendTo(section);

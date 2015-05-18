@@ -1,0 +1,12 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #BAB293;
+  color: #2B2922;
+}
+.jumbotron {
+ background-color: #A39770;
+}
+.well {
+  background-color: #EFE4BD;
+}
