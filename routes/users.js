@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
 var path = require('path');
 var User = require('../models/user');
 
@@ -10,10 +9,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/data', function(req, res, next) {
-  User.find({}, "username firstName lastName email", function (err, user) {
-    if (err) return next(err);
-    req.isAuthenticated(res.json(user));
-  });
+  if(req.user.username == 'master'){
+    User.find({}, "username firstName lastName email", function (err, user) {
+      if (err) return next(err);
+      req.isAuthenticated(res.json(user));
+    });
+  }else{
+    User.find({username: new RegExp(req.user.username, "i")}, "username firstName lastName email", function(err, user){
+      if (err) return next(err);
+      req.isAuthenticated(res.json(user));
+    });
+  }
 });
 
 module.exports = router;
