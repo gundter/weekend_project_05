@@ -1,0 +1,16 @@
+name: Basic Build
+on: push
+jobs:
+  build-node:
+    name: Build application
+    runs-on: ubuntu-latest
+    container: node:14
+    steps:
+        - run: node --version
+          name: Check Node Version
+        - run: npm --version
+          name: Check Npm Version
+        - uses: actions/checkout@v2
+          name: Checkout code
+        - run: npm install
+          name: Install Npm packages
